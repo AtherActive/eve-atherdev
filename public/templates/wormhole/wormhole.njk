@@ -1,0 +1,112 @@
+{# <link rel="stylesheet" href="../css/auracss.css"> #}
+{%extends "../base.njk"%}
+{%import "../components/jumptable.njk" as table%}
+
+{%block meta%}
+<title>{{ worhole.name }} - Atherdev EVE</title>
+<meta name="description" content="Information on how to roll the {{ wormhole.name }} wormhole.">
+{%endblock%}
+
+{%block body%}
+    <div class="container-11">
+        <section>
+            <div class="row flex flex-fd-row">
+                <div class="col-1 col-l-0">
+                    <img src="/img/wormhole.png" alt="" class='wormhole'>
+                </div>
+                <div class="col-6 col-m-12 border-l-04 border-color-theme pd-l-4">
+                    <h1><i class='bx bx-radar'></i> Wormhole {{ wormhole.name }}</h1>
+                    <h5><i class='bx bxs-diamond bx-rotate-180' ></i> {{ wormhole.size*10000 }}kg</h5>
+                    <h5><i class='bx bxs-diamond bx-rotate-180' ></i>{{ wormhole.size }}Gg </h5>
+                </div>
+        </div>
+        </section>
+    
+        <div class="mg-18"></div>
+
+        <div class="bg-accent pd-t-2 pd-b-2">
+            <div class="row flex-ai-center">
+                <div class="col-12 flex-ai-center">
+                    <p>All values are assuming you are rolling with your ships <span class="border-b-02 border-color-theme">cold</span> mass at 200Gg and <span class="border-b-02 border-color-theme">hot</span> mass at 300Gg.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mg-18"></div>
+
+        <div class='bg-accent border-radius-02  pd-t-2 pd-b-2'>
+        <section>
+            <div>
+                <div class="row">
+                <div class="col-12">
+                    <h2>Stabbing</h2>
+                    <p>This wormhole can be stabbed by doing the jumps below. You can track how much you have done by incrementing the bottom row.</p>
+                    <div>
+                        {{ table.makeTable( wormhole.initial.cold , wormhole.initial.hot ) }}
+                    </div>
+                </div>
+            </div>
+        </section>
+        </div>
+
+        <div class="mg-18"></div>
+
+        <div class='row'>
+            <div class="col-12">
+                <div class="row flex-jc-between">
+                    <div class="col-5 col-xl-12 bg-accent border-radius-02 pd-t-10 pd-b-10">
+                        <h3 class='width-100 txt-align-center'>Is Stabbed</h3>
+                        <p class='txt-align-center'>If the hole is stabbed, continue with either of these two options.</p>
+                        <div class='row'>
+                            <div class="col-6 col-m-12 flex-ai-center">
+                                <h4>Rolling the hole</h4>
+                                {{ table.makeTable(wormhole.reducedRoll.cold,wormhole.reducedRoll.hot) }}
+                            </div>
+
+                            <div class="col-6 col-m-12 flex-ai-center">
+                                <h4>Critting the hole</h4>
+                                {{ table.makeTable(wormhole.reducedCrit.cold,wormhole.reducedCrit.hot) }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-1 col-xl-12 flex-ai-center flex-jc-center">
+                        <h2>OR</h2>
+                    </div>
+
+                    <div class="col-5 col-xl-12 bg-accent border-radius-02 pd-t-10 pd-b-10">
+                        <h3 class='width-100 txt-align-center'>Is NOT Stabbed</h3>
+                        <p class='txt-align-center'>If the hole is <span class="border-b-02 border-color-theme">NOT</span> stabbed, continue with either of these two options.</p>
+                        <div class="row">
+                            <div class="col-6 col-m-12 flex-ai-center">
+                                <h4>Rolling the hole</h4>
+                                {{ table.makeTable(wormhole.roll.cold,wormhole.roll.hot) }}
+                            </div>
+
+                            <div class="col-6 col-m-12 flex-ai-center">
+                                <h4>Critting the hole</h4>
+                                {{ table.makeTable(wormhole.crit.cold,wormhole.crit.hot) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mg-18"></div>
+
+        <div class="bg-accent border-radius-02 pd-t-2 pd-b-2">
+            <section>
+                <h2>Notes</h2>
+                {%if wormhole.notes != null%}
+                    <p>{{ wormhole.notes }}</p>
+                {%else%}
+                    <p>There are no additional notes for this type.</p>
+                {%endif%}
+            </section>
+        </div>
+
+    </div>
+
+
+{%endblock%}

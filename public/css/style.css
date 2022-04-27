@@ -1,0 +1,20 @@
+/* COLORS */
+/* COMPONENTS */
+img.wormhole {
+  border-radius: .4rem 0rem 0rem .4rem; }
+
+table.jumps {
+  background-color: #1D1618; }
+  table.jumps tr th {
+    min-width: 8rem;
+    background-color: #00A676; }
+  table.jumps tr td {
+    text-align: center; }
+
+.search {
+  padding: none;
+  padding-bottom: 0px; }
+  .search .searchbox {
+    padding-left: 1rem;
+    width: 100%;
+    max-width: 8.8rem; }

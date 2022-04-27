@@ -1,0 +1,28 @@
+{% macro makeTable(cold,hot) %}
+<table class="jumps">
+    <tr>
+        <th>Cold</th>
+        <th>Hot</th>
+    </tr>
+    <tr>
+        <td><span>{{ cold }}</span></td>
+        <td><span>{{hot}}</span></td>
+    </tr>
+    <tr>
+        <td>
+            <div class="row flex-ai-center flex-jc-between">
+                <i class='bx bx-check-circle '></i>
+                <p>Done</p>
+                <input type="number" class='col-3 bg-accent border-b-02 txt-align-center' value='0' min='0' max='{{cold}}'>
+            </div>
+        </td>
+        <td>
+            <div class="row flex-ai-center flex-jc-between">
+                <i class='bx bx-check-circle '></i>
+                <p>Done</p>
+                <input type="number" class='col-3 bg-accent border-b-02 txt-align-center' value='0' min='0' max='{{hot}}'>
+            </div>
+        </td>
+    </tr>
+</table>
+{% endmacro %}
