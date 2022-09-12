@@ -1,5 +1,5 @@
 {
-    "name": "static-website-template",
+    "name": "eveatherdev",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
@@ -14,9 +14,7 @@
         "dotenv": "^16.0.0",
         "express": "^4.17.3",
         "express-session": "^1.17.2",
+        "mysql2": "^2.3.3",
         "nunjucks": "^3.2.3"
-    },
-    "devDependencies": {
-        "node-sass": "^7.0.1"
     }
 }
